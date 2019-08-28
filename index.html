@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="earth" style="width: 100%; height: 600px"></div>
+		<script src="js/echarts.min.js"></script>
+		<script src="js/echarts-gl.min.js"></script>
+		<script src="js/world.js"></script>
+		<script>
+		var dom = document.getElementById("earth")
+		var myChart = echarts.init(dom);
+		option = {
+			  backgroundColor: "#000",
+			  globe:{
+			    baseTexture: "img/world.jpg",
+			    heightTexture: "img/world.jpg",
+			     displacementScale: 0.04,
+			    environment: "img/starfield.jpg",
+			    shading:"realistic",
+			    realisticMaterial: {
+		            roughness: 0.9
+		        },
+			    postEffect: {
+		            enable: true
+		        },
+		        light: {
+		            main: {
+		                intensity: 5,
+		                shadow: true
+		            },
+		            ambientCubemap: {
+		                texture: "img/pisa.hdr",
+		                diffuseIntensity: 0.2
+		            }
+		        }
+			  }
+		 
+		};
+		if (option && typeof option === "object") {
+		  myChart.setOption(option, true);
+		}
+		</script>
+	</body>
+</html>
